@@ -37,3 +37,11 @@ CREATE TABLE ATTACKS
 -- Count the urls which have been attacked and have the protocol 'http'
 SELECT count(URL) AS cont  FROM ATTACKS 
 WHERE URL LIKE 'http%' 
+
+-- List the records where the URL attacked matches with google (it does not matter if it is google.co.jp, google.es, google.pt, etc) order by number of attacks descendant
+SELECT *  FROM ATTACKS 
+WHERE URL LIKE '%google%'
+
+-- List the ip addresses and the time of the last attack if the attack has been produced this year (2018)
+SELECT IP_ADDRESS, TIME_OF_LAST_ATTACK  FROM ATTACKS 
+WHERE TIME_OF_LAST_ATTACK LIKE '%2018%'
